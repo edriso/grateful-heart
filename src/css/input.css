@@ -8,7 +8,3 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-[dir="rtl"] {
-    direction: rtl;
-}
