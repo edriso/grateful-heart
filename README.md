@@ -1,4 +1,8 @@
-# Grateful Heart ❤️
+<div align="center">
+  <img src="src/assets/heart-logo.svg" alt="Grateful Heart Logo" width="64" height="64">
+</div>
+
+# Grateful Heart
 
 A simple web app to help you practice gratitude by writing down what you're thankful for each day.
 
@@ -27,6 +31,4 @@ A simple web app to help you practice gratitude by writing down what you're than
 
 ---
 
-**Start your gratitude journey today!** 🌸
-
-Write down your blessings and let your heart be filled with gratitude. 🙌
+**Write down your blessings today and let your heart be filled with gratitude!** 🌸
