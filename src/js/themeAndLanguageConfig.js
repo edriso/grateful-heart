@@ -52,14 +52,17 @@ class AppSettings {
 
     applyLanguage() {
         const html = document.documentElement;
-        const langText = document.getElementById('langText');
         
         if (this.language === 'ar') {
             html.setAttribute('dir', 'rtl');
             html.setAttribute('lang', 'ar');
+            // Update body font to arabic font
+            document.documentElement.style.setProperty('--font-text-body', 'var(--font-arabic)');
         } else {
             html.setAttribute('dir', 'ltr');
             html.setAttribute('lang', 'en');
+            // Update body font to english font
+            document.documentElement.style.setProperty('--font-text-body', 'var(--font-english)');
         }
 
         // Update all translatable elements
