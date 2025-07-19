@@ -15,8 +15,8 @@
     <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center h-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Logo/Title -->
-            <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                <svg class="w-6 h-6 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-1 space-x-2 rtl:space-x-reverse">
+                <svg class="w-6 h-6 text-primary-500 m-0" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white" data-en="Grateful Heart" data-ar="قلب ممتن">
@@ -27,12 +27,12 @@
             <!-- Header Actions -->
             <div class="flex items-center space-x-4 rtl:space-x-reverse">
                 <!-- Language Toggle -->
-                <button id="langToggle" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">
+                <button id="langToggle" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200 cursor-pointer">
                     <span id="langText" data-en="العربية" data-ar="English">العربية</span>
                 </button>
 
                 <!-- Theme Toggle -->
-                <button id="themeToggle" class="flex items-center justify-center w-10 h-10 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200">
+                <button id="themeToggle" class="flex items-center justify-center w-10 h-10 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200 cursor-pointer">
                     <!-- Sun icon for dark mode -->
                     <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
@@ -47,9 +47,14 @@
     </header>
 
     <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6" data-en="Write down 3-5 things you're thankful for each day" data-ar="اكتب 3-5 أشياء تشكر الله عليها كل يوم">
-            Write down 3-5 things you're thankful for each day
-        </h2>
+        <div class="mb-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-en="What are things you're thankful for today?" data-ar="ما هي الأشياء التي تحمد الله عليها اليوم؟">
+                What are things you're thankful for today?
+            </h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Write down 3-5 things (it will be saved for 10 days)" data-ar="اكتب 3-5 أشياء (سيتم حفظها لمدة 10 أيام)">
+                Write down 3-5 things you're thankful for today. (it will be saved for 10 days)
+            </p>
+        </div>
 
         <div class="flex gap-3 mb-8">
             <input 
@@ -62,7 +67,7 @@
             />
             <button 
                 id="addGratitudeBtn"
-                class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-primary-500/20"
+                class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-primary-500/20 cursor-pointer"
                 data-en="Add" 
                 data-ar="أضف"
             >
