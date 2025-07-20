@@ -6,18 +6,24 @@
 
 A simple web app to help you practice gratitude by writing down what you're thankful for each day.
 
+---
+
+In a world full of comparisons, we often forget one of the greatest virtues in Islam: الرضا (contentment).
+
+I hope this app helps us focus on being more grateful for what we have and staying on our own path in life.
+
 ## Tech
 
 - HTML, CSS (Tailwind), and JavaScript
 - Data stored locally on your browser
 
-## How to start
+<!-- ## How to start
 
 1. Open [the app](https://edriso.github.io/grateful-heart) in your browser
 2. Type what you're thankful for and click to add
 3. Your gratitude list is saved automatically
 
-**That's it!** Come back tomorrow to add new blessings.
+**That's it!** Come back tomorrow to add new blessings. -->
 
 ## Features
 
