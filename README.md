@@ -1,29 +1,17 @@
-<div align="center">
-  <img src="src/assets/heart-logo.svg" alt="Grateful Heart Logo" width="64" height="64">
-</div>
-
 # Grateful Heart
-
-A simple web app to help you practice gratitude by writing down what you're thankful for each day.
-
----
 
 In a world full of comparisons, we often forget one of the greatest virtues in Islam: الرضا (contentment).
 
-I hope this app helps us focus on being more grateful for what we have and staying on our own path in life.
+I hope this app helps us focus on being more grateful for what we have and stay focused on our own path in life.
+
+<div align="center">
+  <img src="src/assets/heart-logo.svg" alt="Grateful Heart Logo" width="64" height="64">
+</div>
 
 ## Tech
 
 - HTML, CSS (Tailwind), and JavaScript
 - Data stored locally on your browser
-
-<!-- ## How to start
-
-1. Open [the app](https://edriso.github.io/grateful-heart) in your browser
-2. Type what you're thankful for and click to add
-3. Your gratitude list is saved automatically
-
-**That's it!** Come back tomorrow to add new blessings. -->
 
 ## Features
 
@@ -39,6 +27,14 @@ I hope this app helps us focus on being more grateful for what we have and stayi
 - Dark theme support
 - English and Arabic language support
 - Simple and clean interface
+
+<!-- ## How to start
+
+1. Open [the app](https://edriso.github.io/grateful-heart) in your browser
+2. Type what you're thankful for and click to add
+3. Your gratitude list is saved automatically
+
+**That's it!** Come back tomorrow to add new blessings. -->
 
 ---
 
