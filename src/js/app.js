@@ -61,8 +61,8 @@ class App {
             // Calculate days difference from today
             const daysDiff = this.getDaysDifference(record.date);
             
-            // Skip entries older than 10 days
-            if (daysDiff > 10) {
+            // Skip entries older than 7 days
+            if (daysDiff > 7) {
                 // TODO: delete the entry from the gratitudeRecords
                 return;
             }
@@ -70,6 +70,7 @@ class App {
             // Calculate opacity based on days difference
             let opacityClass;
             switch (daysDiff) {
+                case 0: opacityClass = 'opacity-100 border-b !text-primary-500'; break;
                 case 1: opacityClass = 'opacity-90'; break;
                 case 2: opacityClass = 'opacity-80'; break;
                 case 3: opacityClass = 'opacity-70'; break;
@@ -77,10 +78,7 @@ class App {
                 case 5: opacityClass = 'opacity-50'; break;
                 case 6: opacityClass = 'opacity-40'; break;
                 case 7: opacityClass = 'opacity-30'; break;
-                case 8: opacityClass = 'opacity-20'; break;
-                case 9: opacityClass = 'opacity-10'; break;
-                case 10: opacityClass = 'opacity-5'; break;
-                default: opacityClass = 'opacity-100 border-b !text-primary-500'; // Default to today 
+                default: opacityClass = 'opacity-0'; // Default to hidden
             }
             
             // Add each entry to the collection

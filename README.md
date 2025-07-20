@@ -24,9 +24,13 @@ A simple web app to help you practice gratitude by writing down what you're than
 - Write things you're grateful for each day
 - See today's blessings highlighted
 - Your entries are saved automatically in your browser
-- Each gratitude entry is cleared after 10 days, keeping your list fresh
+- Each gratitude entry is cleared after 7 days, keeping your list fresh
 - Dark theme support
 - English and Arabic language support
+- Automatic timezone detection and local date display
+- Random display order with playful rotation effects
+- Age-based opacity (recent entries more visible)
+- Animated pulsing heart logo
 - Simple and clean interface
 
 ---
