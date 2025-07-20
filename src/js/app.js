@@ -4,44 +4,16 @@ class App {
         this.addGratitudeBtn = document.getElementById('addGratitudeBtn');
         this.gratitudeList = document.getElementById('gratitudeList');
         
-        // Get user's timezone
+        this.gratitudeRecords = [];
+        this.maxGratitudeDays = 7;
         this.userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        
-        // gratitudeRecords data - store all dates in UTC format
-        // TODO: load from localStorage, and on double click delete the entry from the gratitudeRecords
-        this.gratitudeRecords = [
-            {
-                date: this.getCurrentDateUTC(),
-                entries: [
-                    "لدي منزل أعيش فيه",
-                    "لدي أصدقاء يسعدونني",
-                    "لدي أمي وأبي يحبونني",
-                    "لدي أخواتي وأخواني يحبونني",
-                ]
-            },
-            {
-                date: this.getPreviousDateUTC(1), // Yesterday
-                entries: [
-                    "My family's love and support",
-                    "Good health and strength",
-                    "Delicious food to eat",
-                    "Friends who make me laugh",
-                ]
-            },
-            {
-                date: this.getPreviousDateUTC(2), // Day before yesterday
-                entries: [
-                    "The beauty of nature",
-                    "Peaceful moments of prayer",
-                    "The ability to read and write",
-                    "The ability to speak and understand",
-                    "The ability to move and breathe",
-                    "The ability to think and reason",
-                    "The ability to love and be loved",
-                    "The ability to learn and grow",
-                ]
-            }
-        ];        
+
+        // Load gratitudeRecords from localStorage
+        const gratitudeRecords = localStorage.getItem('gratitudeRecords');
+
+        if(gratitudeRecords && gratitudeRecords.length > 0) {
+            this.gratitudeRecords = JSON.parse(gratitudeRecords);
+        }
 
         this.init();
     }
@@ -52,8 +24,6 @@ class App {
     }
     
     displayGratitude() {
-        this.gratitudeList.innerHTML = '';
-        
         // Collect all valid entries with their opacity classes
         const allEntries = [];
         
@@ -61,16 +31,18 @@ class App {
             // Calculate days difference from today
             const daysDiff = this.getDaysDifference(record.date);
             
-            // Skip entries older than 7 days
-            if (daysDiff > 7) {
-                // TODO: delete the entry from the gratitudeRecords
+            
+            // Skip and delete old records
+            if (daysDiff > this.maxGratitudeDays) {
+                this.gratitudeRecords = this.gratitudeRecords.filter(item => item.date !== record.date);
+                localStorage.setItem('gratitudeRecords', JSON.stringify(this.gratitudeRecords));
                 return;
             }
             
             // Calculate opacity based on days difference
             let opacityClass;
             switch (daysDiff) {
-                case 0: opacityClass = 'opacity-100 border-b !text-primary-500'; break;
+                case 0: opacityClass = 'opacity-100 text-primary-500 dark:text-white'; break;
                 case 1: opacityClass = 'opacity-90'; break;
                 case 2: opacityClass = 'opacity-80'; break;
                 case 3: opacityClass = 'opacity-70'; break;
@@ -78,7 +50,7 @@ class App {
                 case 5: opacityClass = 'opacity-50'; break;
                 case 6: opacityClass = 'opacity-40'; break;
                 case 7: opacityClass = 'opacity-30'; break;
-                default: opacityClass = 'opacity-0'; // Default to hidden
+                default: opacityClass = 'opacity-0';
             }
             
             // Add each entry to the collection
@@ -86,6 +58,17 @@ class App {
                 allEntries.push({ text: entry, opacityClass });
             });
         });
+
+        if(allEntries.length === 0) {
+            const emptyListTextEn = "No gratitude added yet. Start by adding something you're grateful for!"    
+            const emptyListTextAr = "لا يوجد نعم مضافة بعد. أبدأ بإضافة شيء تحمد الله عليه.";
+            const language = document.documentElement.lang;
+            const emptyListText = language === 'ar' ? emptyListTextAr : emptyListTextEn;
+            this.gratitudeList.innerHTML = `<li class="font-text-body text-lg" data-en="${emptyListTextEn}" data-ar="${emptyListTextAr}">${emptyListText}</li>`;
+            return;
+        }
+
+        this.gratitudeList.innerHTML = '';
         
         // Shuffle the entries randomly
         const shuffledEntries = this.shuffleArray(allEntries);
@@ -93,9 +76,10 @@ class App {
         // Display shuffled entries with random rotation
         shuffledEntries.forEach((entry) => {
             const entryLi = document.createElement('li');
-            entryLi.className = `text-gray-700 dark:text-gray-300 ${entry.opacityClass} mb-1 inline-block`;
+            entryLi.className = `${entry.opacityClass} inline-block p-4`;
             entryLi.textContent = entry.text;
-            
+            entryLi.dataset.date = this.getDateStringFromUTC(this.gratitudeRecords.find(record => record.entries.includes(entry.text)).date);
+
             // Apply random rotation
             this.applyRandomRotation(entryLi);
             
@@ -184,18 +168,23 @@ class App {
     addGratitude() {
         const text = this.gratitudeInput.value.trim();
         if (!text) return;
-        
-        // Add to beginning of gratitudeRecords with UTC date
-        this.gratitudeRecords.unshift({
-            date: this.getCurrentDateUTC(),
-            entries: [text]
-        });
-        
-        // Keep only last 8 items
-        if (this.gratitudeRecords.length > 8) {
-            this.gratitudeRecords = this.gratitudeRecords.slice(0, 8);
+
+        const today = this.getDateStringFromUTC(this.getCurrentDateUTC());
+
+        const record = this.gratitudeRecords.find(record => this.getDateStringFromUTC(record.date) === today);
+
+        if (!record) {
+            this.gratitudeRecords.push({ date: this.getCurrentDateUTC(), entries: [text] });
+        } else {
+            this.gratitudeRecords.find(record => {
+                if (this.getDateStringFromUTC(record.date) === today) {
+                    record.entries.push(text);
+                }
+            });
         }
-        
+
+        localStorage.setItem('gratitudeRecords', JSON.stringify(this.gratitudeRecords));
+
         // Clear input
         this.gratitudeInput.value = '';
         
@@ -210,6 +199,25 @@ class App {
             if (e.key === 'Enter') {
                 this.addGratitude();
             }
+        });
+
+        this.gratitudeList.addEventListener('dblclick', (e) => {
+            const target = e.target;
+
+            if(target.tagName !== 'LI') return;
+
+            const record = this.gratitudeRecords.find(record => this.getDateStringFromUTC(record.date) === target.dataset.date);
+            
+            if (!record) return;
+            
+            record.entries = record.entries.filter(entry => entry !== target.textContent);
+
+            if (record.entries.length === 0) {
+                this.gratitudeRecords = this.gratitudeRecords.filter(item => item.date !== record.date);
+            }
+
+            localStorage.setItem('gratitudeRecords', JSON.stringify(this.gratitudeRecords));
+            this.displayGratitude();
         });
     }
 }

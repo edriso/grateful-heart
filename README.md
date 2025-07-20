@@ -25,12 +25,13 @@ A simple web app to help you practice gratitude by writing down what you're than
 - See today's blessings highlighted
 - Your entries are saved automatically in your browser
 - Each gratitude entry is cleared after 7 days, keeping your list fresh
-- Dark theme support
-- English and Arabic language support
 - Automatic timezone detection and local date display
 - Random display order with playful rotation effects
 - Age-based opacity (recent entries more visible)
+- Double-click to delete entries
 - Animated pulsing heart logo
+- Dark theme support
+- English and Arabic language support
 - Simple and clean interface
 
 ---

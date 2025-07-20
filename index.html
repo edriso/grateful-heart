@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="src/css/output.css"/>
     <script src="src/js/themeAndLanguageConfig.js"></script>
 </head>
-<body class="font-text-body bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col">
+<body class="font-text-body bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col leading-relaxed">
     <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center h-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Logo/Title -->
@@ -58,8 +58,11 @@
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-en="What are things you're thankful for today?" data-ar="ما هي الأشياء التي تحمد الله عليها اليوم؟">
                 What are things you're thankful for today?
             </h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Write down 3-5 things (it will be saved for 10 days)" data-ar="اكتب 3-5 أشياء (سيتم حفظها لمدة 10 أيام)">
-                Write down 3-5 things you're thankful for today. (it will be saved for 10 days)
+            <p class="text-sm text-gray-600 dark:text-gray-400" data-en="Write down 3-5 things (it will be saved for 7 days)" data-ar="اكتب 3-5 أشياء (سيتم حفظها لمدة 7 أيام)">
+                Write down 3-5 things you're thankful for today. (it will be saved for 7 days)
+            </p>
+            <p class="text-xs text-gray-500 dark:text-gray-400" data-en="On double click the entry will be deleted" data-ar="عند النقر المزدوج على العنصر، سيتم حذفه نهائيًا">
+                On double click the entry will be deleted.
             </p>
         </div>
 
@@ -82,18 +85,18 @@
             </button>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <ul id="gratitudeList" class="font-text-handwriting text-gray-600 dark:text-gray-400 flex gap-4 flex-wrap">
-                <!-- Content will be dynamically added here -->
-                <li class="font-text-body text-lg" data-en="No gratitude added yet. Start by adding something you're grateful for!" data-ar="لا يوجد نعم مضافة بعد. أبدأ بإضافة شيء تحمد الله عليه."></li>
-            </ul>
-        </div>
+        <ul id="gratitudeList" class="font-text-handwriting text-gray-700 dark:text-gray-300 flex gap-4 flex-wrap justify-center bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <!-- Content will be dynamically added here -->
+            <li class="font-text-body text-lg" data-en="No gratitude added yet. Start by adding something you're grateful for!" data-ar="لا يوجد نعم مضافة بعد. أبدأ بإضافة شيء تحمد الله عليه.">
+                No gratitude added yet. Start by adding something you're grateful for!
+            </li>
+        </ul>
     </main>
 
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-            <p class="text-sm text-gray-500 dark:text-gray-500" data-en="All praise belongs to Allah, Lord of all the worlds" data-ar="الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِين">
-                All praise belongs to Allah, Lord of all the worlds
+            <p class="text-sm text-gray-500 dark:text-gray-500 leading-relaxed before:content-['“'] after:content-['”']" data-en="My Lord! Grant me the power and ability that I may be grateful for Your favors which You have bestowed on me and on my parents, and that I may do righteous good deeds that will please You" data-ar="رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَى وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ">
+                My Lord! Grant me the power and ability that I may be grateful for Your favors which You have bestowed on me and on my parents, and that I may do righteous good deeds that will please You
             </p>
         </div>
     </footer>
